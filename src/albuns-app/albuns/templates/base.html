@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}{% endblock %} - Biblioteca de Álbuns
+    </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+
+<nav>
+
+    <h1>
+        🎵 Biblioteca de Álbuns
+    </h1>
+
+
+    {% if g.usuario %}
+
+        <span>
+            Olá, {{ g.usuario['nome_usuario'] }}
+        </span>
+
+        <a href="{{ url_for('auth.sair') }}">
+            Sair
+        </a>
+
+
+    {% else %}
+
+        <a href="{{ url_for('auth.cadastro') }}">
+            Cadastrar
+        </a>
+
+        <a href="{{ url_for('auth.entrar') }}">
+            Entrar
+        </a>
+
+    {% endif %}
+
+
+</nav>
+
+
+<section>
+
+    {% for mensagem in get_flashed_messages() %}
+
+        <div class="mensagem">
+            {{ mensagem }}
+        </div>
+
+    {% endfor %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+</section>
+
+
+</body>
+
+</html>

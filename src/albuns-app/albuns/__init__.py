@@ -27,5 +27,8 @@ def create_app():
     from . import auth
     app.register_blueprint(auth.bp)
 
+    from . import albuns
+    app.register_blueprint(albuns.bp)
+
 
     return app

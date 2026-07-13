@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Novo álbum
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Novo álbum</h1>
+
+
+<form method="post">
+
+
+<label>Título</label>
+
+<input name="titulo">
+
+
+<label>Artista</label>
+
+<input name="artista">
+
+
+<label>Gênero</label>
+
+<input name="genero">
+
+
+<label>Ano</label>
+
+<input name="ano">
+
+
+<label>Descrição</label>
+
+<textarea name="descricao"></textarea>
+
+
+<button>
+Salvar
+</button>
+
+
+</form>
+
+
+{% endblock %}

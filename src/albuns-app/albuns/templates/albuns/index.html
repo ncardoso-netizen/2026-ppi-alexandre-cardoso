@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Álbuns
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Álbuns cadastrados</h1>
+
+
+{% if g.usuario %}
+
+<a href="{{ url_for('albuns.criar') }}">
+Novo álbum
+</a>
+
+{% endif %}
+
+
+
+{% for album in albuns %}
+
+<article>
+
+<h2>{{ album['titulo'] }}</h2>
+
+<p>
+Artista: {{ album['artista'] }}
+</p>
+
+<p>
+Gênero: {{ album['genero'] }}
+</p>
+
+<p>
+Ano: {{ album['ano'] }}
+</p>
+
+<p>
+{{ album['descricao'] }}
+</p>
+
+
+</article>
+
+
+{% endfor %}
+
+
+{% endblock %}
